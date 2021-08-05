@@ -20,7 +20,10 @@ SRA AI Server based on MAIST Flask API:
 ## Environment
 ```
 python 3.8 ~
-tensorflow 2.4 ~
+tensorflow 2.5 ~
+tensorflow-text 2.5 ~
+tensorflow-hub 0.12.0 ~
+hdbscan 
 maist-model-core 1.0 ~
 flask 2.0.1 ~
 flask-blueprint 1.3.0 ~
