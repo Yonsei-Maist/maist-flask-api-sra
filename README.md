@@ -32,6 +32,7 @@ flask_marshmallow 0.14.0 ~
 flask_migrate 3.0.1 ~
 flask_sqlalchemy 2.5.1 ~
 marshmallow-sqlalchemy 0.26.1 ~
+flask_jwt_extended 4.2.3 ~
 ```
 
 ## Install

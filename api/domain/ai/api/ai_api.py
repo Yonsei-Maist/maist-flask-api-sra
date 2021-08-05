@@ -4,37 +4,37 @@ from flask_jwt_extended import jwt_required
 from lib.jwt import create_jwt_token, get_claims
 
 from api.common.response.response_message import response_message
-from api.domain.question.service.question_service import QuestionService
+from api.domain.ai.service.ai_service import AIService
 
-bp = Blueprint('question', __name__, url_prefix='/question')
-question_service = QuestionService()
+bp = Blueprint('ai', __name__, url_prefix='/ai')
+ai_service = AIService()
 
 
-class QuestionApi:
+class AIApi:
 
     @jwt_required()  # jwt check
     @cross_origin()  # cross origin check
     @bp.route('/', methods=['GET'])
-    def question_list(*args):
+    def ai_list(*args):
         claims = get_claims()  # get saved data in token
-        return response_message(question_service.question_list())
+        return response_message(ai_service.ai_list())
 
     @cross_origin()
     @bp.route('/', methods=['POST'])
     def create(*args):
-        question_service.create(request.get_json())
+        ai_service.create(request.get_json())
         return response_message()
 
     @cross_origin()
-    @bp.route('/<int:question_id>', methods=['PUT'])
-    def update(*args, question_id):
-        question_service.update(question_id, request.get_json())
+    @bp.route('/<int:ai_id>', methods=['PUT'])
+    def update(*args, ai_id):
+        ai_service.update(ai_id, request.get_json())
         return response_message()
 
     @cross_origin()
-    @bp.route('/<int:question_id>', methods=['DELETE'])
-    def delete(*args, question_id):
-        question_service.delete(question_id)
+    @bp.route('/<int:ai_id>', methods=['DELETE'])
+    def delete(*args, ai_id):
+        ai_service.delete(ai_id)
         return response_message()
 
     @cross_origin()

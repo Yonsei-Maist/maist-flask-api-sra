@@ -3,7 +3,7 @@ from api import db,ma
 
 
 # model
-class Question(db.Model):
+class AI(db.Model):
     id = db.Column(db.Integer, primary_key=True) # 고유 번호
     subject = db.Column(db.String(200), nullable=False) # 제목
     content = db.Column(db.Text(), nullable=False) # 내용
@@ -11,12 +11,12 @@ class Question(db.Model):
 
 
 # marshmallow
-class QuestionSchema(ma.SQLAlchemyAutoSchema):
+class AISchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Question
+        model = AI
 
 
-class QuestionRequestSchema(ma.SQLAlchemyAutoSchema):
+class AIRequestSchema(ma.SQLAlchemyAutoSchema):
     subject = fields.Str()
     content = fields.Str()
 
