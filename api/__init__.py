@@ -25,11 +25,11 @@ def create_app(config_name):
     jwt = JWTManager(app)
 
     # 블루프린트
-    from .domain.question.api import question_api
-    app.register_blueprint(question_api.bp)
+    from api.domain.ai.api import ai_api
+    app.register_blueprint(ai_api.bp)
 
     # 필터
-    from .common.filter import format_datetime
+    from api.common.filter import format_datetime
     app.jinja_env.filters['datetime'] = format_datetime
     app.secret_key = app.config['SECRET_KEY']
 
